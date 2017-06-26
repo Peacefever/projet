@@ -39,10 +39,10 @@ def addPlayer():
     return json.dumps(table), 200, { "Content-Type": "application/json" }
 
 # Requête R4 - Quitter une partie
-@app.route("/players/<playerName>", methods=["DELETE"])
-def deletePlayer(playerName):
+@app.route("/players/<string:str>", methods=["DELETE"])
+def deletePlayer(str):
     #if (playerName == ""):
-    return "OK:DELETE " + playerName
+    return "OK:DELETE " + str
 
 # Requête R1/R7 - Metrology
 @app.route("/metrology", methods=["GET", "POST"])
@@ -76,10 +76,10 @@ def actionsPlayer():#playerName):
     return json.dumps(data), 200, { "Content-Type": "application/json" }
 
 # Requête R2 -  Map
-@app.route("/map", methods=["GET"])
+@app.route("/map/<string:str>", methods=["GET"])
 def map():
     #return json.dumps(json_table)
-    return "OK:GET_MAP"
+    return "OK:MAP "+str
 
 # Requête R5 - Détails d'une partie
 @app.route("/map/<playerName>", methods=["GET"])
