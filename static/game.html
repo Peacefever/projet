@@ -50,10 +50,12 @@
 				data: JSON.stringify(toSend),
 				contentType: "application/json; charset=utf-8",
 				success: function(response){
-					alert("Done " + response);
 					var dat = JSON.parse(response);
-					alert(dat.name);
-					document.cookie = response;
+					//alert(dat.prixLimo);
+					//alert(dat.prodLimo);
+					$('#stock').val(dat.prodLimo);
+					$('#limo').val(dat.prixLimo);
+					//document.cookie = response;
 				},
 				failure: function(error){
 					alert(error);
