@@ -43,23 +43,24 @@
               			prixLimo: $('#prix').val(),
               			prodLimo: $('#production').val(),
 			}
+			$.ajax({
+				url: "/actions",
+				type: "POST",
+				dataType :"json",
+				data: JSON.stringify(toSend),
+				contentType: "application/json; charset=utf-8",
+				success: function(response){
+					alert("Done " + response);
+					var dat = JSON.parse(response);
+					alert(dat.name);
+					document.cookie = response;
+				},
+				failure: function(error){
+					alert(error);
+				}
+    			});
 		});
-                $.ajax({
-                	url: "/actions",
-                        type: "POST",
-                        dataType :"json",
-                        data: JSON.stringify(toSend),
-                        contentType: "application/json; charset=utf-8",
-                        success: function(response){
-                        	alert("Done " + response);
-                        	var dat = JSON.parse(response);
-                         	alert(dat.name);
-                                document.cookie = response;
-                   	},
-                        failure: function(error){
-                        	alert(error);
-                        }
-    		});
+
     	</script>
 	</body>
 	</html>
