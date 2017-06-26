@@ -20,6 +20,10 @@ def jsonResponse(data, status=200):
 def connexion():
   return app.send_static_file('connexion.html')
 # Requête R8 - Reset
+@app.route("/test")
+def test():
+  return database.execute("SELECT * FROM test", NONE)
+  
 @app.route("/reset", methods=["GET"])
 def reset():
     #return json.dumps(json_table[len(json_table)-1])
