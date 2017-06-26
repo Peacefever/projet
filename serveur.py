@@ -22,7 +22,7 @@ def connexion():
 # Requête R8 - Reset
 @app.route("/test")
 def test():
-  return database.execute("SELECT * FROM test", NONE)
+  return database.execute("SELECT * FROM test")
   
 @app.route("/reset", methods=["GET"])
 def reset():
