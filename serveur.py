@@ -23,17 +23,21 @@ def connexion():
 def reset():
     #return json.dumps(json_table[len(json_table)-1])
     return "OK:RESET"
-
+@app.route("/test")
+def test():
+  test = db.select("""SELECT * FROM Test""")
+  return test
 # Requête R4 - Rejoindre une partie
 @app.route("/players", methods=["POST"])
 def addPlayer():
     data = request.get_json()
     if 'name' in data:
-        table = "{\"name\": \""+data['name']+"\",\"infoPlayer\": {\"location\": [{\"latitude\": 25}, {\"longitude\": 50}],\"argent\": [{\"dispo\": 1.0}, {\"ventes\": 0.0$
+        table = "{\"name\": \""+data['name']+"\",\"infoPlayer\": {\"location\": [{\"latitude\": 25}, {\"longitude\": 50}],\"argent\": [{\"dispo\": 1.0}, {\"ventes\": 0.0}, {\"profit\": 0.0}]}}"
+        #table = "{\"name\": \""+test+"\",\"infoPlayer\": {\"location\": [{\"latitude\": 25}, {\"longitude\": 50}],\"argent\": [{\"dispo\": 1.0}, {\"ventes\": 0.0}, {\"profit\": 0.0}]}}"
     print table
     return json.dumps(table), 200, { "Content-Type": "application/json" }
 
-  # Requête R4 - Quitter une partie
+# Requête R4 - Quitter une partie
 @app.route("/players/<playerName>", methods=["DELETE"])
 def deletePlayer(playerName):
     #if (playerName == ""):
@@ -42,11 +46,13 @@ def deletePlayer(playerName):
 # Requête R1/R7 - Metrology
 @app.route("/metrology", methods=["GET", "POST"])
 def metrology():
-    global json_table
-    if request.method == "GET":
-        return "OK:GET_METROLOGY"
-    elif request.method == "POST":
-        return "OK:POST_METROLOGY"
+        data = request.get_json()
+        return json.dumps(data), 200, { "Content-Type": "application/json" }
+   # global json_table
+    #if request.method == "GET":
+     #   return "OK:GET_METROLOGY"
+    #elif request.method == "POST":
+     #   return "OK:POST_METROLOGY"
 
     #return json.dumps(json_table), 200, {'Content-Type': 'application/json'}
 
@@ -74,7 +80,6 @@ def map():
     #return json.dumps(json_table)
     return "OK:GET_MAP"
 
-
 # Requête R5 - Détails d'une partie
 @app.route("/map/<playerName>", methods=["GET"])
 def mapPlayer(playerName):
@@ -84,7 +89,7 @@ def mapPlayer(playerName):
 @app.route("/ingredients", methods=["GET"])
 def ingredients():
     return "GET:OK_INGREDIENTS"
+ 
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0",debug=True)
-
