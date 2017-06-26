@@ -1,5 +1,3 @@
-  GNU nano 2.5.3                                     File: ../../venv/ingeweb/venv/inte.py                                                                                
-
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from flask import Flask, request, redirect
