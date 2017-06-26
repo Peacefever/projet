@@ -10,28 +10,16 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
 
-		<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='ficher.css') }}">
+	<link rel="stylesheet" type="text/css" href="ficher.css"/>
 
     <script type="text/javascript">
-
-      $(function(){
-
         $("#information").on('submit',function(event){         
-
-          $.ajax('http://172.30.1.119:5000/helloworld').done(function(data){
-
-            alert(data);
-
-          })
-
-        event.preventDefault();
-
+        	$.ajax('/action').done(function(data){
+        		alert(data);
+        	});
+        	event.preventDefault();
         })
-
-      });
-
     </script>
-
   </head>
 
 
