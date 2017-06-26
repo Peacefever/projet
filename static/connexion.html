@@ -29,7 +29,7 @@
                                         contentType: "application/json; charset=utf-8",
                                         success: function(response){
 						alert("OK");
-                                                document.cookie = JSON.parse(response);
+                                                document.cookie = response;
                                                 window.location.href = "/game.html";
                                         },
                                         failure: function(error){
