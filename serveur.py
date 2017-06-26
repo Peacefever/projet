@@ -23,10 +23,7 @@ def connexion():
 def reset():
     #return json.dumps(json_table[len(json_table)-1])
     return "OK:RESET"
-@app.route("/test")
-def test():
-  test = db.select("""SELECT * FROM Test""")
-  return test
+  
 # Requête R4 - Rejoindre une partie
 @app.route("/players", methods=["POST"])
 def addPlayer():
