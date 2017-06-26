@@ -22,16 +22,12 @@ def connexion():
 # Requête R8 - Reset
 @app.route("/test")
 def test():
-  return database.execute("SELECT * FROM test")
+  return database.execute("SELECT * FROM test", NONE)
   
 @app.route("/reset", methods=["GET"])
 def reset():
     #return json.dumps(json_table[len(json_table)-1])
     return "OK:RESET"
-@app.route("/test")
-def test():
-  test = db.select("""SELECT * FROM Test""")
-  return test
 # Requête R4 - Rejoindre une partie
 @app.route("/players", methods=["POST"])
 def addPlayer():
