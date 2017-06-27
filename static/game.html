@@ -45,6 +45,9 @@
 			$.get("/map/"+dt.name, function(data, status){
 		        	alert("Data: " + data + "\nStatus: " + status);
     			});
+			$.get("/ingredients", function(data, status){
+		        	alert("Data: " + data + "\nStatus: " + status);
+    			});
 			/*$.ajax({
 				url: "/map/"+dt.name,
 				type: "GET",
