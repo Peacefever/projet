@@ -4,34 +4,36 @@
      <head>
          <meta charset="utf-8"/>
          <title>Interface Game Page</title>
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"$
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
     <link rel="stylesheet" type="text/css" href="fiche.css" />
-    </head>
+     </head>
 
-<!-- CSS image fond de page IHM -->
-	<body style="background-image: url(http://img.fac.pmdstatic.net/fit/http.3A.2F.2F$
-<!-- Structure : url img + taille image de fond -->
+<!-- CSS image fond de page IHM --> 
+   <body style="background-image: url(http://img.fac.pmdstatic.net/fit/http.3A.2F.2Fwww.2Efemmeactuelle.2Efr.2Fvar.2Ffemmeactuelle.2Fstorage.2Fimages.2Fcuisine.2Frecettes.2Fboisson.2Flimonade-au-citron-vert-09024.2F14043909-1-fre-FR.2Flimonade-au-citron-vert.2Ejpg/1200x600/crop-from/center/limonade-au-citron-vert.jpeg); background-size: 120%;">
+<!-- Structure : url img + taille image de fond --> 
 
-<!-- CSS div cadre n°1 -->
-	<div style="background:url('https://pub.be/wp-content/uploads/2016/02/LIMO-citron$
-<!-- Structure : url img (no-repeat img) + espacement entre fieldset et cadre + tail$
+<!-- CSS div cadre n°1 --> 
+   <div style="background:url('https://pub.be/wp-content/uploads/2016/02/LIMO-citron.png') no-repeat; padding:3px; border:8px ridge #F7FF3C; background-color:#000000; max-width: 600px; Opacity: 1;">
+<!-- Structure : url img (no-repeat img) + espacement entre fieldset et cadre + taille bordure (type bordure) + fond du cadre (noir) + longueur max + opacité 1 (pour écrire par-dessus une image) --> 
 
-<!-- Fieldset Données Joueur -->
+<!-- Fieldset Données Joueur --> 
 <fieldset>
-	<legend><FONT color="#EFD807"><strong>Données joueur</strong></FONT></legend>
-      	<br><label for="Name">Nom du joueur</label>
-      	<input type="text" name="name" id="name" readonly/>
-      	<br><label for="Boissonprod">Boisson à produire</label>
-      	<input type="text" name="boissonprod" id="boissonprod" readonly/>
-	<label>
-      	<input type="text" name="cost" id="cost" readonly/> $
-<!-- Menu déroulant -->
+    <legend><FONT color="#EFD807"><strong>Données joueur</strong></FONT></legend>
+      <br><label for="Name">Nom du joueur</label>
+      <input type="text" name="name" id="name" readonly/>
+      <br><label for="Boissonprod">Boisson à produire</label>
+      <input type="text" name="boissonprod" id="boissonprod" readonly/>
+      <label> 
+      <input type="text" name="cost" id="cost" readonly/> $
+
+<!-- Menu déroulant --> 
 <div class="zone_boisson">Sélectionnez boisson
-	<select name="boisson" size="1">
-      	<option>Toutes les boissons</option>
-      	<option value="boisson.html"></option>
-     	</select>
+     <select name="boisson" size="1">
+      <option>Toutes les boissons</option>
+      <option value="boisson.html"></option>
+     </select>
 </div>
+
       <label for="Nbreprod">Nombre production</label>
       <input type="text" name="nbreprod" id="nbreprod" />
       <br><label for="Nbrepub">Nombre panneau pub</label>
@@ -40,11 +42,11 @@
       <input type="text" name="prix" id="prix" />
       <br><br><button value="Decision" id="send">Envoyer</button>
 </fieldset>
-<!-- Fin fieldset Données Joueur -->
+<!-- Fin fieldset Données Joueur --> 
 
-<!-- Fieldset Production -->
+<!-- Fieldset Production --> 
 <fieldset>
-      <legend><FONT color="#EFD807"><strong>Production</strong></FONT></legend>
+      <legend><FONT color="#EFD807"><strong>Production</strong></FONT></legend> 
       <br><label for="Quantite">Quantité</label>
       <input type="text" name="quantite" id="quantite" readonly/>
       <br><label for="Nomboisson">Nom boisson</label>
@@ -52,24 +54,15 @@
       <FONT color="black"><label for="Cout">Coût</label>
       <input type="text" name="cout" id="cout" readonly/> $</FONT>
 </fieldset>
-<!-- Fin fieldset Production -->
-<fieldset>
-      <legend><FONT color="#EFD807"><strong>Production</strong></FONT></legend>
-      <br><label for="Quantite">Quantité</label>
-      <input type="text" name="quantite" id="quantite" readonly/>
-      <br><label for="Nomboisson">Nom boisson</label>
-      <input type="text" name="nomboisson" id="nomboisson" readonly/>
-      <FONT color="black"><label for="Cout">Coût</label>
-      <input type="text" name="cout" id="cout" readonly/> $</FONT>
-</fieldset>
-<!-- Fin fieldset Production -->
-</div>
-<!-- CSS fin div cadre n°1 -->
+<!-- Fin fieldset Production --> 
 
-<!-- CSS div cadre n°2 -->
-   <div style="background:url('http://www.landi.ch/weather/Content/Wetter/43_real.pn$
+   </div>
+<!-- CSS fin div cadre n°1 --> 
+
+<!-- CSS div cadre n°2 --> 
+   <div style="background:url('http://www.landi.ch/weather/Content/Wetter/43_real.png') no-repeat; padding:3px; border:8px ridge #F7FF3C; background-color:#000000; max-width: 600px; Opacity: 1;">
 <fieldset>
-      <legend><FONT color="#EFD807"><strong>Données environnement</strong></FONT></l$
+      <legend><FONT color="#EFD807"><strong>Données environnement</strong></FONT></legend> <!-- Titre du fieldset --> 
       <br><label for="Meteo">Météo</label>
       <input type="text" name="meteo" id="meteo" readonly/>
       <br><br><label for="Jour">Jour</label>
@@ -77,10 +70,13 @@
       <br><br><button id="refresh">Rafraichir</button>
 </fieldset>
    </div>
-<!-- CSS fin div cadre n°2 -->
-  <div style="background:url('http://en.grand-marnier.com/assets/en/cocktails/cockta$
+
+<!-- CSS fin div cadre n°2 --> 
+
+<!-- CSS div cadre n°3 --> 
+  <div style="background:url('http://en.grand-marnier.com/assets/en/cocktails/cocktails_withgrandmojito.jpg') no-repeat; padding:3px; border:8px ridge #F7FF3C; background-color:#000000; max-width: 600px; Opacity: 1;">
 <fieldset>
-      <legend><FONT color="#EFD807"><strong>Bilan</strong></FONT></legend> <!-- Titr$
+      <legend><FONT color="#EFD807"><strong>Bilan</strong></FONT></legend> <!-- Titre du fieldset --> 
       <br><br><label for="Profit">Profit</label>
       <input type="text" name="profit" id="profit" readonly/>
       <br><br><label for="Couttotal">Coût total</label>
@@ -89,16 +85,18 @@
       <input type="text" name="nbreboissonvendues" id="nbreboissonvendues" readonly/>
 </fieldset>
    </div>
-<!-- CSS fin div cadre n°3 -->
+<!-- CSS fin div cadre n°3 --> 
 
-<!-- CSS cadre div MAP -->
-      <div style="padding:3px; border:8px ridge #F7FF3C; background-color:#000000; p$
-<!-- CSS fin cadre div MAP -->
+<!-- CSS cadre div MAP --> 
+      <div style="padding:3px; border:8px ridge #F7FF3C; background-color:#000000; position:absolute; left: 57.8%; bottom: 17.5%; width: 690px; height: 510px; margin-left: -150px; margin-top: -100px; Opacity: 1;">
+<!-- CSS fin cadre div MAP --> 
 
-<!-- Début JavaScript -->
+
+<!-- Début JavaScript --> 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-<script>
-         $('#sendStock').click(function(event){
+
+  <script type="text/javascript"> // Sending message to server
+          $('#sendStock').click(function(event){
       event.preventDefault();
               var toSend = {
                     prixLimo: $('#prix').val(),
@@ -114,7 +112,7 @@
           var dat = JSON.parse(response); // Réponse au format json
           //alert(dat.prixLimo);
           //alert(dat.prodLimo);
-          $('#stock').val(dat.prodLimo); // Dans stock on demande la valeur de prodL$
+          $('#stock').val(dat.prodLimo); // Dans stock on demande la valeur de prodLimo
           $('#limo').val(dat.prixLimo); // Dans prix on demande la valeur de prixLimo
           //document.cookie = response;
         },
@@ -124,6 +122,7 @@
           });
     });
       </script>
-<!-- Fin JavaScript -->
+<!-- Fin JavaScript --> 
+
   </body>
 </html>
