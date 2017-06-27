@@ -21,7 +21,7 @@
 	<fieldset>
     		<legend><strong>Données joueur</strong></legend> <!-- Titre du fieldset --> 
           		<br><label for="Pseudo">Pseudo :</label>
-          		<input type="text" name="pseudo" id="stock" value="{{ username }}" readonly/>
+          		<input type="text" name="pseudo" id="pseudo" value="{{ username }}" readonly/>
           		<br><br><label for="Stock">Stock :</label>
           		<input type="text" name="stock" id="stock" readonly/>
           		<br><br><label for="Limo">Prix limonades :</label>
@@ -38,7 +38,7 @@
   	</fieldset></div>
 	<script type="text/javascript"> // Sending message to server
 		$( document ).ready(function(){
-			alert("Ready !);
+			alert("Ready !");
 			var cook = document.cookie;
 			var dt = JSON.parse(cook);
 			/*$.ajax({
