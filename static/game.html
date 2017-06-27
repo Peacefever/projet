@@ -14,7 +14,7 @@
         	<input type="text" name="production" id="production" />
             	<br><br><label for="name">Prix limonades </label>
             	<input type="text" name="prix" id="prix" />
-            	<br><br><button value="Decision" id="sendStock">Envoyer au serveur</button>
+            	<br><br><button value="Decision" id="action">Envoyer au serveur</button>
   	</fieldset></div>
 
     	<div style="background:url('http://en.grand-marnier.com/assets/en/cocktails/cocktails_withgrandmojito.jpg') no-repeat; padding:3px; border:8px ridge #F7FF3C; background-color:#000000; max-width: 600px; Opacity: 1;">
@@ -37,10 +37,11 @@
           	<br><br><button id="refresh">Rafraichir</button>
   	</fieldset></div>
 	<script type="text/javascript"> // Sending message to server
+		var dt;
 		$( document ).ready(function(){
 			alert("Ready !");
 			var cook = document.cookie;
-			var dt = JSON.parse(cook);
+			dt = JSON.parse(cook);
 			$.get("/map/"+dt.name, function(data, status){
 		        	alert("Data: " + data + "\nStatus: " + status);
     			});
@@ -60,24 +61,42 @@
 				}
     			});*/
 		});
-        	/*$('#sendStock').click(function(event){
+        	$('#action').click(function(event){
 			event.preventDefault();
-          		var toSend = {
-              			prixLimo: $('#prix').val(),
-              			prodLimo: $('#production').val(),
+			var cook = document.cookie;
+			var dat = JSON.parse(cook);
+          		let toSend = 
+			   {"action":[{  
+         				"cash":1,
+         				"sales":1,
+         				"profit":0.0,
+         				"drinksOffered":{  
+            					"name":"name",
+            					"price":0.0,
+            					"hasAlcohol":1,
+            					"isCold":1
+         				}			
+				    	}
+   					],
+		   			"simulated":1
+			}
+              			
+			
+			//A finir
 			}
 			$.ajax({
-				url: "/actions", // route actions
+				url: "/actions/"+dt.name, // route actions
 				type: "POST", // Envoyer
 				dataType :"json", // format json
 				data: JSON.stringify(toSend),
 				contentType: "application/json; charset=utf-8",
 				success: function(response){ // succès
+					alert("POST");
 					var dat = JSON.parse(response); // réponse au format json
-					//alert(dat.prixLimo);
+					alert(dat.totalcost);
 					//alert(dat.prodLimo);
-					$('#stock').val(dat.prodLimo); // dans stock on demande la valeur de prodLimo
-					$('#limo').val(dat.prixLimo); // dans prix on demande la valeur de prixLimo
+					//$('#stock').val(dat.prodLimo); // dans stock on demande la valeur de prodLimo
+					//$('#limo').val(dat.prixLimo); // dans prix on demande la valeur de prixLimo
 					//document.cookie = response;
 				},
 				failure: function(error){
