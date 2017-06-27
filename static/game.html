@@ -45,7 +45,7 @@
 			$.get("/map/"+dt.name, function(data, status){
 		        	alert("Data: " + data + "\nStatus: " + status);
     			});
-			$.ajax({
+			/*$.ajax({
 				url: "/map/"+dt.name,
 				type: "GET",
 				dataType :"json",
@@ -59,7 +59,7 @@
 				failure: function(error){
 					alert(error);
 				}
-    			});
+    			});*/
 		});
         	$("#action").click(function(event){
 			event.preventDefault();
