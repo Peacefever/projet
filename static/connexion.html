@@ -11,7 +11,7 @@
 			<!--<form id="connexion" action="/players" method="POST"-->
 				<label for="name">Pseudo :</label>
 				<input type="text" name="username" id="username">
-				<br><br><button type="button" id = "connexion" value="Connexion">Connexion</button>
+				<br><br><button onclick="myFunctionAlert()" type="button" id = "connexion" value="Connexion">Connexion</button>
 			<!--/form-->
 		</fieldset></center></div>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
@@ -28,7 +28,7 @@
                                         data: JSON.stringify(data),
                                         contentType: "application/json; charset=utf-8",
                                         success: function(response){
-						alert("Bienvenue" + dat.name + " !");
+						alert("OK");
                                                 document.cookie = response;
                                                 window.location.href = "/game.html";
                                         },
