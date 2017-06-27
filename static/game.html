@@ -66,22 +66,8 @@
 			var cook = document.cookie;
 			var dat = JSON.parse(cook);
 			//A finir
-			$.post("/actions/"+dt.name,
-    			{
-				action:[
-				   {
-				   cash:1,
-				   sales:1,
-				   profit:0.0,
-				   drinksOffered:{
-				   	name:name,
-				   	price:0.0,
-				   	hasAlcohol:1,
-				   	isCold:1}
-				   }],
-				   	simulated:1
-			},
-    			function(data, status){
+			var toSend = "{action:[{cash:1,sales:1,profit:0.0,drinksOffered:{name:name,price:0.0,hasAlcohol:1,isCold:1}}],simulated:1}"
+			$.post("/actions/"+dt.name,toSend,function(data, status){
         			alert("Data: " + data + "\nStatus: " + status);
     			});
 			/*$.ajax({
