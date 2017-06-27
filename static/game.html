@@ -41,7 +41,10 @@
 			alert("Ready !");
 			var cook = document.cookie;
 			var dt = JSON.parse(cook);
-			$.ajax({
+			$.get("/map/"+dt.name, function(data, status){
+		        	alert("Data: " + data + "\nStatus: " + status);
+    			});
+			/*$.ajax({
 				url: "/map/"+dt.name,
 				type: "GET",
 				dataType :"json",
@@ -55,7 +58,7 @@
 				failure: function(error){
 					alert(error);
 				}
-    			});
+    			});*/
 		});
         	/*$('#sendStock').click(function(event){
 			event.preventDefault();
