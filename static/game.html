@@ -95,33 +95,30 @@
 <!-- Début JavaScript --> 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
 
-  <script type="text/javascript"> // Sending message to server
-          $('#sendStock').click(function(event){
-      event.preventDefault();
-              var toSend = {
-                    prixLimo: $('#prix').val(),
-                    prodLimo: $('#production').val(),
-      }
-      $.ajax({
-        url: "/actions", // Route actions
-        type: "POST", // Envoyer
-        dataType :"json", // Format json
-        data: JSON.stringify(toSend),
-        contentType: "application/json; charset=utf-8",
-        success: function(response){ // Succès
-          var dat = JSON.parse(response); // Réponse au format json
-          //alert(dat.prixLimo);
-          //alert(dat.prodLimo);
-          $('#stock').val(dat.prodLimo); // Dans stock on demande la valeur de prodLimo
-          $('#limo').val(dat.prixLimo); // Dans prix on demande la valeur de prixLimo
-          //document.cookie = response;
-        },
-        failure: function(error){
-          alert(error);
-        }
+     <script type="text/javascript"> // Sending message to server
+          var dt
+          $( document ).ready(function(){
+               alert("Ready !");
+               var cook = document.cookie;
+               dt = JSON.parse(cook);
+               $.get("/map/"+dt.name, function(data, status){
+                    var dat = JSON.parse(data);
+                    document.cookie = dat
+                    alert("MAP": " + data + "\nStatus: " + status);
+               });
+               /*$.get("/ingredients", function(data, status){
+                    alert("Data: " + data + "\nStatus: " + status);
+               });*/
+          $("#send").click(function(event){
+               event.preventDefault();
+               var cook = document.cookie;
+               var dat = JSON.parse(cook);
+               var toSend = "{action:[{cash:1,sales:1,profit:0.0,drinksOffered:{name:name,price:0.0,hasAlcohol:1,isCold:1}}],simulated:1}"
+               $.post("/actions/"+dt.name,toSend,function(data, status){
+                    alert("Data: " + data + "\nStatus: " + status);
+               });
           });
-    });
-      </script>
+     </script>
 <!-- Fin JavaScript --> 
 
   </body>
