@@ -63,10 +63,9 @@
 		});
         	$('#action').click(function(event){
 			event.preventDefault();
-			var cook = document.cookie;
-			var dat = JSON.parse(cook);
-          		var toSend = 
-			    "{\"action\":[{\"cash\":1,\"sales\":1,\profit\":0.0,\"drinksOffered\":{\"name":\"name\",\"price\":0.0,\"hasAlcohol\":1,\"isCold\":1}}],\"simulated\":1}"
+			//var cook = document.cookie;
+			//var dat = JSON.parse(cook);
+          		var toSend = "{\"action\":[{\"cash\":1,\"sales\":1,\profit\":0.0,\"drinksOffered\":{\"name":\"name\",\"price\":0.0,\"hasAlcohol\":1,\"isCold\":1}}],\"simulated\":1}"
 			//A finir
 			}
 			$.ajax({
@@ -77,8 +76,8 @@
 				contentType: "application/json; charset=utf-8",
 				success: function(response){ // succès
 					alert("POST");
-					var dat = JSON.parse(response); // réponse au format json
-					alert(dat.totalcost);
+					//var dat = JSON.parse(response); // réponse au format json
+					//alert(dat.totalcost);
 					//alert(dat.prodLimo);
 					//$('#stock').val(dat.prodLimo); // dans stock on demande la valeur de prodLimo
 					//$('#limo').val(dat.prixLimo); // dans prix on demande la valeur de prixLimo
