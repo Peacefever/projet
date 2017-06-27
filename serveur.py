@@ -19,9 +19,6 @@ def jsonResponse(data, status=200):
 @app.route("/")
 def connexion():
   return app.send_static_file('connexion.html')
-@app.route("/actions/<string:a>")
-def connexion():
-  return "fnejonfseon"
 # Requête R8 - Reset
 
 @app.route("/test")
